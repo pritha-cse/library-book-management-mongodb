@@ -1,0 +1,222 @@
+Microsoft Windows [Version 10.0.19045.6456]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Lenovo>doskey /history
+doskey /history
+
+C:\Users\Lenovo>mongosh
+Current Mongosh Log ID: 695a620b8e4c2d287e1e2620
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.10
+Using MongoDB:          8.2.3
+Using Mongosh:          2.5.10
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-01-03T20:17:17.391+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use libraryDB
+switched to db libraryDB
+libraryDB> db.createCollection("book")
+{ ok: 1 }
+libraryDB> db.books.insertMany([
+...   { title: "Atomic Habits", author: "James Clear", category: "Self Help", publishedYear: 2018, availableCopies: 5 },
+...   { title: "Clean Code", author: "Robert Martin", category: "Programming", publishedYear: 2008, availableCopies: 3 },
+...   { title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", category: "Finance", publishedYear: 2000,availableCopies: 4 },
+...   { title: "Think Like a Monk", author: "Jay Shetty", category: "Self Help", publishedYear: 2020, availableCopies: 6 },
+...   { title: "The Alchemist", author: "Paulo Coelho", category: "Novel", publishedYear: 1993, availableCopies: 2 },
+...   { title: "Deep Work", author: "Cal Newport", category: "Productivity", publishedYear: 2016, availableCopies: 1 },
+...   { title: "You Can Win", author: "Shiv Khera", category: "Motivation", publishedYear: 2015, availableCopies: 0 }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('695a63af8e4c2d287e1e2621'),
+    '1': ObjectId('695a63af8e4c2d287e1e2622'),
+    '2': ObjectId('695a63af8e4c2d287e1e2623'),
+    '3': ObjectId('695a63af8e4c2d287e1e2624'),
+    '4': ObjectId('695a63af8e4c2d287e1e2625'),
+    '5': ObjectId('695a63af8e4c2d287e1e2626'),
+    '6': ObjectId('695a63af8e4c2d287e1e2627')
+  }
+}
+libraryDB> db.books.find()
+[
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2621'),
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Self Help',
+    publishedYear: 2018,
+    availableCopies: 7
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2622'),
+    title: 'Clean Code',
+    author: 'Robert Martin',
+    category: 'Programming',
+    publishedYear: 2008,
+    availableCopies: 3
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2623'),
+    title: 'Rich Dad Poor Dad',
+    author: 'Robert Kiyosaki',
+    category: 'Finance',
+    publishedYear: 2000,
+    availableCopies: 4
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2624'),
+    title: 'Think Like a Monk',
+    author: 'Jay Shetty',
+    category: 'Self Help',
+    publishedYear: 2020,
+    availableCopies: 6
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2625'),
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    category: 'Novel',
+    publishedYear: 1993,
+    availableCopies: 2
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2626'),
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    category: 'Productivity',
+    publishedYear: 2016,
+    availableCopies: 1
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2621'),
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Self Help',
+    publishedYear: 2018,
+    availableCopies: 5
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2622'),
+    title: 'Clean Code',
+    author: 'Robert Martin',
+    category: 'Programming',
+    publishedYear: 2008,
+    availableCopies: 3
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2623'),
+    title: 'Rich Dad Poor Dad',
+    author: 'Robert Kiyosaki',
+    category: 'Finance',
+    publishedYear: 2000,
+    availableCopies: 4
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2624'),
+    title: 'Think Like a Monk',
+    author: 'Jay Shetty',
+    category: 'Self Help',
+    publishedYear: 2020,
+    availableCopies: 6
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2625'),
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    category: 'Novel',
+    publishedYear: 1993,
+    availableCopies: 2
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2626'),
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    category: 'Productivity',
+    publishedYear: 2016,
+    availableCopies: 1
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2627'),
+    title: 'You Can Win',
+    author: 'Shiv Khera',
+    category: 'Motivation',
+    publishedYear: 2015,
+    availableCopies: 0
+  }
+]
+libraryDB> db.books.find({ publishedYear: { $gt: 2015 } })
+[
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2621'),
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Self Help',
+    publishedYear: 2018,
+    availableCopies: 7
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2624'),
+    title: 'Think Like a Monk',
+    author: 'Jay Shetty',
+    category: 'Self Help',
+    publishedYear: 2020,
+    availableCopies: 6
+  },
+  {
+    _id: ObjectId('695a4b29ae100cc50e1e2626'),
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    category: 'Productivity',
+    publishedYear: 2016,
+    availableCopies: 1
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2621'),
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Self Help',
+    publishedYear: 2018,
+    availableCopies: 5
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2624'),
+    title: 'Think Like a Monk',
+    author: 'Jay Shetty',
+    category: 'Self Help',
+    publishedYear: 2020,
+    availableCopies: 6
+  },
+  {
+    _id: ObjectId('695a63af8e4c2d287e1e2626'),
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    category: 'Productivity',
+    publishedYear: 2016,
+    availableCopies: 1
+  }
+]
+...   { title: "Atomic Habits" },
+...   { $inc: { availableCopies: 1 } }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+libraryDB>
+{ acknowledged: true, deletedCount: 1 }
+
+
+
+
+
+
+
+
